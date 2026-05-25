@@ -133,13 +133,12 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
-
+    'usermenu_enabled'       => true,
+    'usermenu_include_name'  => true,
+    'usermenu_desc'          => 'Administrador',
+    'usermenu_profile_url'   => false,
+    'usermenu_logout_url'    => '#',
+    'usermenu_default_colour'=> 'danger',
     /*
     |--------------------------------------------------------------------------
     | Layout
@@ -396,6 +395,11 @@ return [
             'text' => 'Carros',
             'url'  => 'carros',
             'icon' => 'fas fa-car',
+        ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'usuarios',
+            'icon' => 'fas fa-users',
         ],
     ],
 
