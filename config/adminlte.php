@@ -392,6 +392,11 @@ return [
             'icon_color' => 'cyan',
             'url' => '#',
         ],
+        [
+            'text' => 'Carros',
+            'url'  => 'carros',
+            'icon' => 'fas fa-car',
+        ],
     ],
 
     /*
