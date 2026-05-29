@@ -189,15 +189,15 @@ return [
     |
     */
 
-    'classes_body' => '',
+    'classes_body' => 'dark-mode accent-danger',
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-black',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 

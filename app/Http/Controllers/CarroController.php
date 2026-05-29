@@ -48,7 +48,6 @@ class CarroController extends Controller
         $dados = $request->validated();
 
         if ($request->hasFile('foto')) {
-            // Remove foto antiga
             if ($carro->foto) {
                 Storage::disk('public')->delete($carro->foto);
             }
