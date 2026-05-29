@@ -1,29 +1,35 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
+        <h2 class="font-semibold text-xl leading-tight" style="color:#fff; font-family:Georgia,serif;">
+            <i class="fas fa-user-circle mr-2" style="color:#e94560;"></i> Perfil
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <div style="max-width:720px; margin:0 auto; display:flex; flex-direction:column; gap:24px;">
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+        <!-- Informações -->
+        <div style="background:#111827; border:1px solid #1f2d4a; border-radius:12px; padding:32px;">
+            <h3 style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#e94560; margin-bottom:20px;">
+                <i class="fas fa-id-card mr-2"></i> Informações do Perfil
+            </h3>
+            @include('profile.partials.update-profile-information-form')
         </div>
+
+        <!-- Senha -->
+        <div style="background:#111827; border:1px solid #1f2d4a; border-radius:12px; padding:32px;">
+            <h3 style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#e94560; margin-bottom:20px;">
+                <i class="fas fa-lock mr-2"></i> Alterar Senha
+            </h3>
+            @include('profile.partials.update-password-form')
+        </div>
+
+        <!-- Excluir conta -->
+        <div style="background:#1a0f0f; border:1px solid #3d1a1a; border-radius:12px; padding:32px;">
+            <h3 style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#e94560; margin-bottom:20px;">
+                <i class="fas fa-exclamation-triangle mr-2"></i> Zona de Perigo
+            </h3>
+            @include('profile.partials.delete-user-form')
+        </div>
+
     </div>
 </x-app-layout>

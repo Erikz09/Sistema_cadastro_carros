@@ -23,27 +23,7 @@
             from { opacity: 0.15; }
             to   { opacity: 0.7; }
         }
-        .road {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            height: 60px;
-            background: #0d0d0d;
-            border-top: 2px solid #e94560;
-            z-index: 0;
-        }
-        .road-line {
-            position: absolute;
-            top: 50%; left: 0; right: 0;
-            height: 2px;
-            background: repeating-linear-gradient(
-                90deg, #ffd700 0 50px, transparent 50px 100px
-            );
-            animation: road-move 1.2s linear infinite;
-        }
-        @keyframes road-move {
-            from { background-position: 0 0; }
-            to   { background-position: -100px 0; }
-        }
+
 
         /* Sobrescreve os inputs do Breeze para o tema escuro */
         input[type="email"],
@@ -107,21 +87,6 @@
         </div>
     </div>
 
-    <script>
-        const container = document.getElementById('stars');
-        for (let i = 0; i < 80; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            const size = Math.random() * 2 + 0.5;
-            s.style.cssText = `
-                width:${size}px; height:${size}px;
-                top:${Math.random() * 88}%;
-                left:${Math.random() * 100}%;
-                animation-delay:${Math.random() * 4}s;
-                animation-duration:${2 + Math.random() * 3}s
-            `;
-            container.appendChild(s);
-        }
-    </script>
+
 </body>
 </html>

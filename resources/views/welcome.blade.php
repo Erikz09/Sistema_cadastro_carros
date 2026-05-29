@@ -147,7 +147,7 @@
 
         <div class="btn-group">
             <a href="{{ route('login') }}" class="btn-primary">Acessar o Sistema →</a>
-            <a href="{{ route('usuarios.create') }}" class="btn-secondary">Criar Conta</a>
+            <a href="{{ route('register') }}" class="btn-secondary">Criar Conta</a>
         </div>
 
         <div class="features">
