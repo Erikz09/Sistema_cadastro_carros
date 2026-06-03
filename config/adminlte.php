@@ -401,6 +401,12 @@ return [
             'url'  => 'usuarios',
             'icon' => 'fas fa-users',
         ],
+        [
+            'text'        => 'Painel Admin',
+            'url'         => 'admin/dashboard',
+            'icon'        => 'fas fa-shield-alt',
+            'can'         => 'admin',
+        ],
     ],
 
     /*

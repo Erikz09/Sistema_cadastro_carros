@@ -9,14 +9,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('carros', function (Blueprint $table) {
-            // O ->nullable() resolve o problema com os dados antigos
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
+
     public function down(): void
     {
         Schema::table('carros', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
+            $table->dropForeignIdFor(\App\Models\User::class);
             $table->dropColumn('user_id');
         });
     }
