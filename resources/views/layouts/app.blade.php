@@ -14,25 +14,7 @@
             background: #0a0f1e !important;
             color: #cbd5e1 !important;
         }
-        #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-        .star {
-            position: absolute;
-            border-radius: 50%;
-            background: #fff;
-            animation: twinkle 3s infinite alternate;
-        }
-        @keyframes twinkle {
-            from { opacity: 0.1; }
-            to   { opacity: 0.6; }
-        }
-        .app-wrapper {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        /* Page header */
+       
         .page-header {
             background: #111827;
             border-bottom: 1px solid #1f2d4a;
@@ -132,22 +114,5 @@
             {{ $slot }}
         </main>
     </div>
-
-    <script>
-        const container = document.getElementById('stars');
-        for (let i = 0; i < 60; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            const size = Math.random() * 2 + 0.5;
-            s.style.cssText = `
-                width:${size}px; height:${size}px;
-                top:${Math.random()*100}%;
-                left:${Math.random()*100}%;
-                animation-delay:${Math.random()*4}s;
-                animation-duration:${2+Math.random()*3}s
-            `;
-            container.appendChild(s);
-        }
-    </script>
 </body>
 </html>

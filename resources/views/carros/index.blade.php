@@ -3,126 +3,105 @@
 @section('title', 'Carros')
 
 @section('content_header')
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark"><i class="fas fa-car mr-2"></i>Carros Cadastrados</h1>
-            </div>
-            <div class="col-sm-6 text-right">
-                <a href="{{ route('carros.create') }}" class="btn btn-success elevation-2">
-                    <i class="fas fa-plus-circle mr-1"></i> Cadastrar Novo Carro
-                </a>
-            </div>
-        </div>
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="m-0">
+            <i class="fas fa-car me-2" style="color:#e94560;"></i> Carros Cadastrados
+        </h1>
+        <a href="{{ route('carros.create') }}" class="btn btn-danger btn-sm">
+            <i class="fas fa-plus me-1"></i> Novo Carro
+        </a>
     </div>
 @stop
 
 @section('content')
-    {{-- Mensagens de Sucesso --}}
+
     @if(session('success'))
-        <div class="alert alert-success alert-dismissible fade show elevation-1" role="alert">
-            <h5><i class="icon fas fa-check"></i> Sucesso!</h5>
-            {{ session('success') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     @endif
 
-    {{-- Mensagens de Erro (Caso adicione validações futuras) --}}
-    @if(session('error'))
-        <div class="alert alert-danger alert-dismissible fade show elevation-1" role="alert">
-            <h5><i class="icon fas fa-ban"></i> Erro!</h5>
-            {{ session('error') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
+    <div class="row g-4">
+        @forelse($carros as $carro)
+        <div class="col-12 col-sm-6 col-xl-4">
+            <div class="card h-100 shadow-sm" style="background:#111827; border:1px solid #1f2d4a; border-radius:12px; overflow:hidden;">
 
-    <div class="card card-outline card-primary elevation-2">
-        <div class="card-body p-0">
-            <div class="table-responsive">
-                <table class="table table-hover table-striped m-0 align-middle" style="vertical-align: middle;"> 
-                    <thead class="thead-dark">
-                        <tr>
-                            <th width="100" class="text-center">Foto</th>
-                            <th>Marca / Modelo</th>
-                            <th class="text-center">Ano</th>
-                            <th>Cor</th>
-                            <th class="text-center">Placa</th>
-                            <th>Preço</th>
-                            <th width="120" class="text-center">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($carros as $carro)
-                        <tr>
-                            <td class="text-center align-middle">
-                                @if($carro->foto)
-                                    <img src="{{ asset('storage/' . $carro->foto) }}" alt="Foto" width="70" class="img-thumbnail shadow-sm">
-                                @else
-                                    <div class="bg-light rounded d-flex align-items-center justify-content-center mx-auto shadow-sm" style="width: 70px; height: 45px;">
-                                        <i class="fas fa-image text-muted"></i>
-                                    </div>
-                                @endif
-                            </td>
-                            <td class="align-middle">
-                                <span class="font-weight-bold text-capitalize text-primary">{{ $carro->marca }}</span>
-                                <small class="d-block text-muted text-uppercase">{{ $carro->modelo }}</small>
-                            </td>
-                            <td class="text-center align-middle">
-                                <span class="badge badge-secondary px-2 py-1.5">{{ $carro->ano }}</span>
-                            </td>
-                            <td class="align-middle text-capitalize">
-                                <i class="fas fa-palette mr-1 text-muted"></i> {{ $carro->cor }}
-                            </td>
-                            <td class="text-center align-middle">
-                                @if($carro->placa && strtolower($carro->placa) !== 'não-tem')
-                                    <span class="badge badge-dark font-weight-bold px-2 py-1" style="letter-spacing: 1px;">
-                                        {{ strtoupper($carro->placa) }}
-                                    </span>
-                                @else
-                                    <span class="badge badge-light border text-muted">Sem Placa</span>
-                                @endif
-                            </td>
-                            <td class="align-middle text-success font-weight-bold">
-                                R$ {{ number_format($carro->preco, 2, ',', '.') }}
-                            </td>
-                            <td class="text-center align-middle">
-                                <div class="btn-group" role="group">
-                                    <a href="{{ route('carros.edit', $carro) }}" class="btn btn-sm btn-info" title="Editar Carro">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <form action="{{ route('carros.destroy', $carro) }}" method="POST" class="d-inline">
-                                        @csrf @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger" title="Excluir Carro" onclick="return confirm('Tem certeza que deseja excluir este veículo?')">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="7" class="text-center py-5 text-muted">
-                                <i class="fas fa-car-crash fa-3x mb-3 d-block"></i>
-                                Nenhum carro cadastrado no momento.
-                            </td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        @if($carros->hasPages())
-            <div class="card-footer clearfix bg-white">
-                <div class="float-right">
-                    {{ $carros->links() }}
+                {{-- Imagem --}}
+                @if($carro->foto)
+                    <img src="{{ asset('storage/' . $carro->foto) }}"
+                         alt="{{ $carro->marca }}"
+                         style="width:100%; height:200px; object-fit:cover;">
+                @else
+                    <div class="d-flex align-items-center justify-content-center"
+                         style="height:200px; background:#0d1220; border-bottom:1px solid #1f2d4a;">
+                        <i class="fas fa-car" style="font-size:48px; color:#1f2d4a;"></i>
+                    </div>
+                @endif
+
+                <div class="card-body" style="color:#cbd5e1;">
+                    <span class="badge mb-2" style="background:rgba(233,69,96,.15); color:#e94560; font-size:10px; letter-spacing:2px;">
+                        {{ $carro->ano }}
+                    </span>
+                    <h5 class="card-title mb-0" style="font-family:Georgia,serif; color:#fff;">
+                        {{ $carro->marca }}
+                    </h5>
+                    <p class="text-secondary small mb-3">{{ $carro->modelo }}</p>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#4a5568;">Cor</div>
+                            <div style="font-size:13px;">{{ $carro->cor }}</div>
+                        </div>
+                        <div class="col-6">
+                            <div style="font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#4a5568;">Placa</div>
+                            <div style="font-size:13px;">{{ $carro->placa }}</div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-2"
+                         style="border-top:1px solid #1f2d4a;">
+                        <span style="font-family:Georgia,serif; font-size:17px; color:#e94560; font-weight:700;">
+                            R$ {{ number_format($carro->preco, 2, ',', '.') }}
+                        </span>
+                        @if(isset($carro->user))
+                        <span style="font-size:11px; color:#4a5568;">
+                            <i class="fas fa-user me-1" style="color:#e94560;"></i>{{ $carro->user->name }}
+                        </span>
+                        @endif
+                    </div>
                 </div>
-            </div>
-        @endif
-    </div>
-@stop
 
+                {{-- Ações --}}
+                @if(auth()->user()->isAdmin() || $carro->user_id === auth()->id())
+                <div class="card-footer d-flex gap-2" style="background:#0d1220; border-top:1px solid #1f2d4a;">
+                    <a href="{{ route('carros.edit', $carro) }}"
+                       class="btn btn-warning btn-sm flex-fill">
+                        <i class="fas fa-edit me-1"></i> Editar
+                    </a>
+                    <form action="{{ route('carros.destroy', $carro) }}" method="POST" class="flex-fill">
+                        @csrf @method('DELETE')
+                        <button class="btn btn-danger btn-sm w-100"
+                                onclick="return confirm('Deseja excluir este carro?')">
+                            <i class="fas fa-trash me-1"></i> Excluir
+                        </button>
+                    </form>
+                </div>
+                @endif
+
+            </div>
+        </div>
+        @empty
+        <div class="col-12 text-center py-5">
+            <i class="fas fa-car" style="font-size:64px; color:#1f2d4a;"></i>
+            <h4 class="mt-3" style="color:#fff;">Nenhum carro cadastrado ainda</h4>
+            <p class="text-secondary">Clique em "Novo Carro" para começar.</p>
+        </div>
+        @endforelse
+    </div>
+
+    <div class="mt-4">
+        {{ $carros->links('pagination::bootstrap-5') }}
+    </div>
+
+@stop

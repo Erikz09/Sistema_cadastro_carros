@@ -3,35 +3,30 @@
 @section('title', 'Cadastrar Carro')
 
 @section('content_header')
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0 text-dark"><i class="fas fa-plus-circle mr-2 text-primary"></i>Novo Carro</h1>
-            </div>
-        </div>
-    </div>
+    <h1 class="m-0">
+        <i class="fas fa-plus-circle me-2" style="color:#e94560;"></i> Cadastrar Carro
+    </h1>
 @stop
 
 @section('content')
-    <div class="card card-outline card-primary elevation-2">
-        <div class="card-header">
-            <h3 class="card-title">Preencha as especificações do veículo</h3>
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            <div class="card" style="background:#111827; border:1px solid #1f2d4a; border-radius:12px;">
+                <div class="card-body p-4">
+                    <form action="{{ route('carros.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @include('carros._form')
+                        <div class="d-flex gap-2 mt-3">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-save me-1"></i> Salvar
+                            </button>
+                            <a href="{{ route('carros.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-times me-1"></i> Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-        <form action="{{ route('carros.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="card-body">
-                @include('carros._form')
-            </div>
-            
-            <div class="card-footer bg-light text-right">
-                <a href="{{ route('carros.index') }}" class="btn btn-default mr-2">
-                    Cancelar
-                </a>
-                <button type="submit" class="btn btn-success px-4 shadow-sm">
-                    <i class="fas fa-save mr-1"></i> Salvar Registro
-                </button>
-            </div>
-        </form>
     </div>
 @stop

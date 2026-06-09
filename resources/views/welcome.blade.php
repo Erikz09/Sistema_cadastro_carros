@@ -12,180 +12,382 @@
             background: #0a0f1e;
             font-family: 'Segoe UI', sans-serif;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            color: #cbd5e1;
         }
 
-        #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-        .star {
-            position: absolute;
-            border-radius: 50%;
-            background: #fff;
-            animation: twinkle 3s infinite alternate;
-        }
-        @keyframes twinkle {
-            from { opacity: 0.2; }
-            to   { opacity: 0.9; }
-        }
-
-        .hero {
-            position: relative;
-            z-index: 1;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 24px 120px;
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #1f2d4a;
+            padding: 0 40px;
+            height: 64px;
+            display: flex; align-items: center; justify-content: space-between;
         }
 
-        .brand {
-            font-size: 11px;
-            letter-spacing: 5px;
+        .navbar-brand {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar-brand span { color: #e94560; }
+
+        .navbar-tagline {
+            font-size: 10px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: #4a5568;
+        }
+
+        .navbar-left { display: flex; flex-direction: column; gap: 2px; }
+
+        .navbar-buttons { display: flex; gap: 12px; align-items: center; }
+
+        .btn-nav-login {
+            background: transparent;
+            border: 1px solid #e94560;
             color: #e94560;
-            margin-bottom: 20px;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-nav-login:hover { background: rgba(233,69,96,0.1); }
+
+        .btn-nav-register {
+            background: #e94560;
+            border: 1px solid #e94560;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn-nav-register:hover { background: #c73652; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; z-index: 1;
+            padding: 140px 40px 60px;
+            text-align: center;
+        }
+
+        .hero-label {
+            font-size: 10px; letter-spacing: 5px;
+            text-transform: uppercase; color: #e94560;
+            margin-bottom: 16px; display: block;
         }
 
         .hero h1 {
             font-family: Georgia, serif;
-            font-size: clamp(40px, 8vw, 72px);
-            color: #fff;
-            line-height: 1.1;
-            margin-bottom: 16px;
+            font-size: clamp(36px, 7vw, 64px);
+            color: #fff; line-height: 1.1; margin-bottom: 16px;
         }
-
         .hero h1 span { color: #e94560; }
 
         .hero p {
-            font-size: 16px;
-            color: #8892b0;
-            margin-bottom: 40px;
-            max-width: 420px;
+            font-size: 15px; color: #8892b0;
+            max-width: 480px; margin: 0 auto 36px;
+            line-height: 1.7;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
+        .hero-stats {
+            display: flex; gap: 40px; justify-content: center;
+            margin-top: 48px; flex-wrap: wrap;
         }
 
-        .btn-primary {
-            background: #e94560;
-            color: #fff;
-            border: none;
-            padding: 14px 40px;
-            border-radius: 4px;
-            font-size: 13px;
+        .stat {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .stat-number {
+            font-family: Georgia, serif; font-size: 32px; color: #e94560; font-weight: 700;
+        }
+        .stat-label {
+            font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4a5568;
+        }
+
+        /* ===== SEPARADOR ===== */
+        .section-label {
+            position: relative; z-index: 1;
+            text-align: center; padding: 48px 40px 24px;
+        }
+        .section-label span {
+            font-size: 10px; letter-spacing: 4px;
+            text-transform: uppercase; color: #e94560;
+        }
+        .section-label h2 {
+            font-family: Georgia, serif; font-size: 28px;
+            color: #fff; margin-top: 8px;
+        }
+
+        /* ===== GRID DE CARROS ===== */
+        .cars-grid {
+            position: relative; z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 0 40px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .car-card {
+            background: #111827;
+            border: 1px solid #1f2d4a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .car-card:hover {
+            transform: translateY(-4px);
+            border-color: #e94560;
+            box-shadow: 0 8px 32px rgba(233,69,96,0.12);
+        }
+
+        .car-img {
+            width: 100%; height: 200px; object-fit: cover;
+            background: #0a0f1e;
+        }
+
+        .car-img-placeholder {
+            width: 100%; height: 200px;
+            background: #0d1220;
+            display: flex; align-items: center; justify-content: center;
+            border-bottom: 1px solid #1f2d4a;
+        }
+        .car-img-placeholder i { font-size: 48px; color: #1f2d4a; }
+
+        .car-body { padding: 20px; }
+
+        .car-badge {
+            display: inline-block;
+            background: rgba(233,69,96,0.12);
+            color: #e94560;
+            font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .car-title {
+            font-family: Georgia, serif;
+            font-size: 20px; color: #fff; margin-bottom: 4px;
+        }
+
+        .car-subtitle {
+            font-size: 12px; color: #4a5568; margin-bottom: 16px;
+        }
+
+        .car-details {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 10px; margin-bottom: 16px;
+        }
+
+        .car-detail {
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .car-detail-label {
+            font-size: 9px; letter-spacing: 1.5px;
+            text-transform: uppercase; color: #4a5568;
+        }
+        .car-detail-value {
+            font-size: 13px; color: #cbd5e1;
+        }
+
+        .car-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid #1f2d4a;
+        }
+
+        .car-price {
+            font-family: Georgia, serif;
+            font-size: 18px; color: #e94560; font-weight: 700;
+        }
+
+        .car-owner {
+            font-size: 11px; color: #4a5568;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .car-owner i { color: #e94560; font-size: 10px; }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            position: relative; z-index: 1;
+            text-align: center; padding: 80px 40px;
+        }
+        .empty-state i { font-size: 64px; color: #1f2d4a; margin-bottom: 20px; display: block; }
+        .empty-state h3 { font-family: Georgia, serif; font-size: 22px; color: #fff; margin-bottom: 8px; }
+        .empty-state p { font-size: 13px; color: #4a5568; }
+
+        /* ===== CTA BOTTOM ===== */
+        .cta-section {
+            position: relative; z-index: 1;
+            text-align: center;
+            padding: 60px 40px;
+            border-top: 1px solid #1f2d4a;
+            background: rgba(233,69,96,0.03);
+        }
+        .cta-section h3 {
+            font-family: Georgia, serif; font-size: 24px;
+            color: #fff; margin-bottom: 8px;
+        }
+        .cta-section p { font-size: 13px; color: #8892b0; margin-bottom: 28px; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .btn-cta-primary {
+            background: #e94560; color: #fff;
+            padding: 14px 40px; border-radius: 4px;
+            font-size: 12px; letter-spacing: 2px;
+            text-transform: uppercase; text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
-        .btn-primary:hover { background: #c73652; transform: translateY(-2px); }
+        .btn-cta-primary:hover { background: #c73652; transform: translateY(-2px); }
 
-        .btn-secondary {
-            background: transparent;
-            color: #e94560;
+        .btn-cta-secondary {
+            background: transparent; color: #e94560;
             border: 1px solid #e94560;
-            padding: 14px 40px;
-            border-radius: 4px;
-            font-size: 13px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
+            padding: 14px 40px; border-radius: 4px;
+            font-size: 12px; letter-spacing: 2px;
+            text-transform: uppercase; text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
-        .btn-secondary:hover { background: rgba(233, 69, 96, 0.1); transform: translateY(-2px); }
+        .btn-cta-secondary:hover { background: rgba(233,69,96,0.1); transform: translateY(-2px); }
 
-        .features {
-            display: flex;
-            gap: 40px;
-            margin-top: 64px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .feat {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .feat-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            border: 1px solid #e94560;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e94560;
-            font-size: 20px;
-        }
-
-        .feat span {
-            font-size: 12px;
-            color: #8892b0;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        /* Responsive */
+        @media (max-width: 600px) {
+            .navbar { padding: 0 20px; }
+            .cars-grid { padding: 0 16px 60px; grid-template-columns: 1fr; }
+            .hero { padding: 120px 20px 40px; }
         }
     </style>
 </head>
 <body>
     <div id="stars"></div>
 
-    <div class="hero">
-        <p class="brand">Sistema Automotivo</p>
-        <h1>Bem-vindo ao<br><span>AutoGest</span></h1>
-        <p>Gerencie seu catálogo de veículos com facilidade. Cadastre, edite e visualize carros em um só lugar.</p>
-
-        <div class="btn-group">
-            <a href="{{ route('login') }}" class="btn-primary">Acessar o Sistema →</a>
-            <a href="{{ route('register') }}" class="btn-secondary">Criar Conta</a>
-
+    {{-- NAVBAR --}}
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="{{ route('welcome') }}" class="navbar-brand">Auto<span>Gest</span></a>
+            <span class="navbar-tagline">Sistema Automotivo</span>
         </div>
+        <div class="navbar-buttons">
+            <a href="{{ route('login') }}" class="btn-nav-login">
+                <i class="fas fa-sign-in-alt"></i> Entrar
+            </a>
+            <a href="{{ route('usuarios.create') }}" class="btn-nav-register">
+                <i class="fas fa-user-plus"></i> Cadastrar
+            </a>
+        </div>
+    </nav>
 
-        <div class="features">
-            <div class="feat">
-                <div class="feat-icon"><i class="fas fa-car"></i></div>
-                <span>Cadastro</span>
+    {{-- HERO --}}
+    <div class="hero">
+        <span class="hero-label">Catálogo de Veículos</span>
+        <h1>Bem-vindo ao<br><span>AutoGest</span></h1>
+        <p>Explore o catálogo completo de veículos cadastrados. Faça login para gerenciar seus próprios carros.</p>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">{{ $carros->count() }}</span>
+                <span class="stat-label">Veículos</span>
             </div>
-            <div class="feat">
-                <div class="feat-icon"><i class="fas fa-list"></i></div>
-                <span>Listagem</span>
+            <div class="stat">
+                <span class="stat-number">{{ $carros->unique('marca')->count() }}</span>
+                <span class="stat-label">Marcas</span>
             </div>
-            <div class="feat">
-                <div class="feat-icon"><i class="fas fa-image"></i></div>
-                <span>Fotos</span>
+            <div class="stat">
+                <span class="stat-number">{{ $carros->min('ano') ?? '—' }}</span>
+                <span class="stat-label">Ano mais antigo</span>
             </div>
-            <div class="feat">
-                <div class="feat-icon"><i class="fas fa-lock"></i></div>
-                <span>Segurança</span>
+            <div class="stat">
+                <span class="stat-number">{{ $carros->max('ano') ?? '—' }}</span>
+                <span class="stat-label">Ano mais recente</span>
             </div>
         </div>
     </div>
 
-    <script>
-        const container = document.getElementById('stars');
-        for (let i = 0; i < 80; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            const size = Math.random() * 2.5 + 0.5;
-            s.style.cssText = `
-                width:${size}px; height:${size}px;
-                top:${Math.random()*90}%;
-                left:${Math.random()*100}%;
-                animation-delay:${Math.random()*4}s;
-                animation-duration:${2+Math.random()*3}s
-            `;
-            container.appendChild(s);
-        }
-    </script>
+    {{-- GRID DE CARROS --}}
+    @if($carros->isNotEmpty())
+        <div class="section-label">
+            <span>Catálogo</span>
+            <h2>Todos os Veículos</h2>
+        </div>
+
+        <div class="cars-grid">
+            @foreach($carros as $carro)
+            <div class="car-card">
+                @if($carro->foto)
+                    <img src="{{ asset('storage/' . $carro->foto) }}"
+                         alt="{{ $carro->marca }} {{ $carro->modelo }}"
+                         class="car-img">
+                @else
+                    <div class="car-img-placeholder">
+                        <i class="fas fa-car"></i>
+                    </div>
+                @endif
+
+                <div class="car-body">
+                    <span class="car-badge">{{ $carro->ano }}</span>
+                    <h3 class="car-title">{{ $carro->marca }}</h3>
+                    <p class="car-subtitle">{{ $carro->modelo }}</p>
+
+                    <div class="car-details">
+                        <div class="car-detail">
+                            <span class="car-detail-label">Cor</span>
+                            <span class="car-detail-value">{{ $carro->cor }}</span>
+                        </div>
+                        <div class="car-detail">
+                            <span class="car-detail-label">Placa</span>
+                            <span class="car-detail-value">{{ $carro->placa }}</span>
+                        </div>
+                    </div>
+
+                    <div class="car-footer">
+                        <span class="car-price">
+                            R$ {{ number_format($carro->preco, 2, ',', '.') }}
+                        </span>
+                        @if($carro->user)
+                        <span class="car-owner">
+                            <i class="fas fa-user"></i>
+                            {{ $carro->user->name }}
+                        </span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    @else
+        <div class="empty-state">
+            <i class="fas fa-car"></i>
+            <h3>Nenhum veículo cadastrado ainda</h3>
+            <p>Faça login e seja o primeiro a cadastrar um carro!</p>
+        </div>
+    @endif
+
+    {{-- CTA --}}
+    <div class="cta-section">
+        <h3>Quer gerenciar seus veículos?</h3>
+        <p>Crie uma conta gratuita e comece a cadastrar seus carros agora.</p>
+        <div class="cta-buttons">
+            <a href="{{ route('usuarios.create') }}" class="btn-cta-primary">
+                <i class="fas fa-user-plus"></i> Criar Conta
+            </a>
+            <a href="{{ route('login') }}" class="btn-cta-secondary">
+                <i class="fas fa-sign-in-alt"></i> Já tenho conta
+            </a>
+        </div>
+    </div>
 </body>
 </html>
