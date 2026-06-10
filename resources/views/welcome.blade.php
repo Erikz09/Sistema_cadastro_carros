@@ -275,7 +275,7 @@
 <body>
     <div id="stars"></div>
 
-    {{-- NAVBAR --}}
+    {{-- NAVBAR --}} 
     <nav class="navbar">
         <div class="navbar-left">
             <a href="{{ route('welcome') }}" class="navbar-brand">Auto<span>Gest</span></a>
@@ -285,7 +285,7 @@
             <a href="{{ route('login') }}" class="btn-nav-login">
                 <i class="fas fa-sign-in-alt"></i> Entrar
             </a>
-            <a href="{{ route('usuarios.create') }}" class="btn-nav-register">
+            <a href="{{ route('register') }}" class="btn-nav-register">
                 <i class="fas fa-user-plus"></i> Cadastrar
             </a>
         </div>
@@ -381,7 +381,7 @@
         <h3>Quer gerenciar seus veículos?</h3>
         <p>Crie uma conta gratuita e comece a cadastrar seus carros agora.</p>
         <div class="cta-buttons">
-            <a href="{{ route('usuarios.create') }}" class="btn-cta-primary">
+            <a href="{{ route('register') }}" class="btn-cta-primary">
                 <i class="fas fa-user-plus"></i> Criar Conta
             </a>
             <a href="{{ route('login') }}" class="btn-cta-secondary">
