@@ -9,17 +9,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: #0a0f1e;
+            background: #020617;
             font-family: 'Segoe UI', sans-serif;
             min-height: 100vh;
-            color: #cbd5e1;
+            color: #F8FAFC;
         }
 
         /* ===== NAVBAR ===== */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            background: rgba(10, 15, 30, 0.85);
-            backdrop-filter: blur(12px);
+            background: #0F172A;
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid #1f2d4a;
             padding: 0 40px;
             height: 64px;
@@ -32,7 +32,7 @@
             color: #fff;
             text-decoration: none;
         }
-        .navbar-brand span { color: #e94560; }
+        .navbar-brand span { color: #4d70b8; }
 
         .navbar-tagline {
             font-size: 10px;
@@ -47,8 +47,8 @@
 
         .btn-nav-login {
             background: transparent;
-            border: 1px solid #e94560;
-            color: #e94560;
+            border: 1px solid #4d70b8;
+            color: #4d70b8;
             padding: 8px 20px;
             border-radius: 4px;
             font-size: 12px;
@@ -57,11 +57,11 @@
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
         }
-        .btn-nav-login:hover { background: rgba(233,69,96,0.1); }
+        .btn-nav-login:hover { background: rgba(100, 79, 219, 0.1); }
 
         .btn-nav-register {
-            background: #e94560;
-            border: 1px solid #e94560;
+            background: #4d70b8;
+            border: 1px solid #4d70b8;
             color: #fff;
             padding: 8px 20px;
             border-radius: 4px;
@@ -71,7 +71,7 @@
             text-decoration: none;
             transition: background 0.2s;
         }
-        .btn-nav-register:hover { background: #c73652; }
+        .btn-nav-register:hover { background: #1f2d4a; }
 
         /* ===== HERO ===== */
         .hero {
@@ -81,17 +81,17 @@
         }
 
         .hero-label {
-            font-size: 10px; letter-spacing: 5px;
-            text-transform: uppercase; color: #e94560;
+            font-size: 12px; letter-spacing: 5px;
+            text-transform: uppercase; color: #4d70b8;
             margin-bottom: 16px; display: block;
         }
 
         .hero h1 {
             font-family: Georgia, serif;
             font-size: clamp(36px, 7vw, 64px);
-            color: #fff; line-height: 1.1; margin-bottom: 16px;
+            color: #F8FAFC; line-height: 1.1; margin-bottom: 16px;
         }
-        .hero h1 span { color: #e94560; }
+        .hero h1 span { color: #F8FAFC; }
 
         .hero p {
             font-size: 15px; color: #8892b0;
@@ -108,7 +108,7 @@
             display: flex; flex-direction: column; align-items: center; gap: 4px;
         }
         .stat-number {
-            font-family: Georgia, serif; font-size: 32px; color: #e94560; font-weight: 700;
+            font-family: Georgia, serif; font-size: 32px; color: #4d70b8; font-weight: 700;
         }
         .stat-label {
             font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4a5568;
@@ -121,7 +121,7 @@
         }
         .section-label span {
             font-size: 10px; letter-spacing: 4px;
-            text-transform: uppercase; color: #e94560;
+            text-transform: uppercase; color: #4d70b8;
         }
         .section-label h2 {
             font-family: Georgia, serif; font-size: 28px;
@@ -148,7 +148,7 @@
         }
         .car-card:hover {
             transform: translateY(-4px);
-            border-color: #e94560;
+            border-color: #4d70b8;
             box-shadow: 0 8px 32px rgba(233,69,96,0.12);
         }
 
@@ -246,23 +246,23 @@
         .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
         .btn-cta-primary {
-            background: #e94560; color: #fff;
+            background: #4d70b8; color: #fff;
             padding: 14px 40px; border-radius: 4px;
             font-size: 12px; letter-spacing: 2px;
             text-transform: uppercase; text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
-        .btn-cta-primary:hover { background: #c73652; transform: translateY(-2px); }
+        .btn-cta-primary:hover { background: #1f2d4a; transform: translateY(-2px); }
 
         .btn-cta-secondary {
-            background: transparent; color: #e94560;
-            border: 1px solid #e94560;
+            background: transparent; color: #4d70b8;
+            border: 1px solid #1f2d4a;
             padding: 14px 40px; border-radius: 4px;
             font-size: 12px; letter-spacing: 2px;
             text-transform: uppercase; text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
-        .btn-cta-secondary:hover { background: rgba(233,69,96,0.1); transform: translateY(-2px); }
+        .btn-cta-secondary:hover { background: rgba(42, 30, 109, 0.1); transform: translateY(-2px); }
 
         /* Responsive */
         @media (max-width: 600px) {
@@ -275,7 +275,7 @@
 <body>
     <div id="stars"></div>
 
-    {{-- NAVBAR --}} 
+    {{-- NAVBAR --}}
     <nav class="navbar">
         <div class="navbar-left">
             <a href="{{ route('welcome') }}" class="navbar-brand">Auto<span>Gest</span></a>
