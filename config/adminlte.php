@@ -323,31 +323,25 @@ return [
             ['header' => 'CONFIGURAÇÕES DA CONTA'],
             [
                 'text' => 'Meu Perfil',
-                'route' => 'profile.edit',
+                'route'  => 'profile.index', 
                 'icon' => 'fas fa-fw fa-user',
             ],
             [
-                'text' => 'Alterar Senha',
-                'route' => 'profile.edit',
+                'text' => 'Alterar Perfil e Senha',
+                'route'  => 'profile.edit',  
                 'icon' => 'fas fa-fw fa-lock',
             ],
 
             ['header' => 'GERENCIAMENTO'],
             [
                 'text' => 'Carros',
-                'url'  => 'carros',
-                'icon' => 'fas fa-car',
+                'route'  => 'carros.index',
+                'icon' => 'fas fa-fw fa-car',
             ],
             [
                 'text' => 'Usuários',
-                'url'  => 'usuarios',
-                'icon' => 'fas fa-users',
-            ],
-            [
-                'text'        => 'Painel Admin',
-                'url'         => 'admin/dashboard',
-                'icon'        => 'fas fa-shield-alt',
-                'can'         => 'admin',
+                'route'  => 'usuarios.lista', // Redireciona para a tabela com a listagem de todos os usuários
+                'icon' => 'fas fa-fw fa-users',
             ],
         ],
     /*

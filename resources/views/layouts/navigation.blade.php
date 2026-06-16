@@ -16,7 +16,7 @@
                               padding-bottom:4px; transition:color 0.2s;">
                         <i class="fas fa-car mr-1"></i> Carros
                     </a>
-                    <a href="{{ route('usuarios.index') }}"
+                    <a href="{{ route('usuarios.lista') }}"
                        style="font-size:12px; letter-spacing:1px; text-transform:uppercase; text-decoration:none;
                               color: {{ request()->routeIs('usuarios.*') ? '#e94560' : '#8892b0' }};
                               border-bottom: {{ request()->routeIs('usuarios.*') ? '2px solid #e94560' : '2px solid transparent' }};
@@ -85,7 +85,7 @@
         <a href="{{ route('carros.index') }}" style="display:block; padding:10px 0; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#8892b0; text-decoration:none;">
             <i class="fas fa-car mr-2"></i> Carros
         </a>
-        <a href="{{ route('usuarios.index') }}" style="display:block; padding:10px 0; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#8892b0; text-decoration:none;">
+        <a href="{{ route('usuarios.lista') }}" style="display:block; padding:10px 0; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#8892b0; text-decoration:none;">
             <i class="fas fa-users mr-2"></i> Usuários
         </a>
         <a href="{{ route('profile.edit') }}" style="display:block; padding:10px 0; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#8892b0; text-decoration:none;">

@@ -111,7 +111,7 @@
         @endif
 
         <main class="page-content">
-  
+            {{ $slot }}
         </main>
     </div>
 </body>
