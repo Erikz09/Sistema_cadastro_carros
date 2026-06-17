@@ -17,7 +17,7 @@
                         @csrf
                         @include('carros._form')
                         <div class="d-flex gap-2 mt-3">
-                            <button type="submit" class="btn btn-danger">
+                            <button type="submit" class="btn btn-success">
                                 <i class="fas fa-save me-1"></i> Salvar
                             </button>
                             <a href="{{ route('carros.index') }}" class="btn btn-secondary">

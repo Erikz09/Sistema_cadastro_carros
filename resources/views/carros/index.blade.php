@@ -5,9 +5,9 @@
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="m-0">
-            <i class="fas fa-car me-2" style="color:#e94560;"></i> Carros Cadastrados
+            <i class="fas fa-car me-2" style="color:#1f2d4a;"></i> Carros Cadastrados
         </h1>
-        <a href="{{ route('carros.create') }}" class="btn btn-danger btn-sm">
+        <a href="{{ route('carros.create') }}" class="btn btn-primary btn-sm">
             <i class="fas fa-plus me-1"></i> Novo Carro
         </a>
     </div>
@@ -76,7 +76,7 @@
                 @if(auth()->user()->isAdmin() || $carro->user_id === auth()->id())
                 <div class="card-footer d-flex gap-2" style="background:#0d1220; border-top:1px solid #1f2d4a;">
                     <a href="{{ route('carros.edit', $carro) }}"
-                       class="btn btn-warning btn-sm flex-fill">
+                       class="btn btn-success btn-sm flex-fill">
                         <i class="fas fa-edit me-1"></i> Editar
                     </a>
                     <form action="{{ route('carros.destroy', $carro) }}" method="POST" class="flex-fill">

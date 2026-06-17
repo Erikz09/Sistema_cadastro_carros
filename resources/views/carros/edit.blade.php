@@ -4,7 +4,7 @@
 
 @section('content_header')
     <h1 class="m-0">
-        <i class="fas fa-edit me-2" style="color:#e94560;"></i> Editar Carro
+        <i class="fas fa-edit me-2" style="color:#1f2d4a;"></i> Editar Carro
     </h1>
 @stop
 

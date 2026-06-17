@@ -31,7 +31,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button style="display:flex; align-items:center; gap:8px; background:transparent; border:1px solid #1f2d4a; border-radius:6px; padding:8px 14px; color:#8892b0; font-size:13px; cursor:pointer; transition:border-color 0.2s;"
-                                onmouseover="this.style.borderColor='#e94560'; this.style.color='#fff'"
+                                onmouseover="this.style.borderColor='#2b3982'; this.style.color='#fff'"
                                 onmouseout="this.style.borderColor='#1f2d4a'; this.style.color='#8892b0'">
                             <i class="fas fa-user-circle" style="color:#e94560;"></i>
                             {{ Auth::user()->name }}
@@ -48,7 +48,7 @@
 
                             <a href="{{ route('profile.edit') }}"
                                style="display:block; padding:10px 16px; font-size:12px; letter-spacing:1px; text-transform:uppercase; color:#8892b0; text-decoration:none; transition:color 0.2s;"
-                               onmouseover="this.style.color='#e94560'; this.style.background='rgba(233,69,96,0.05)'"
+                               onmouseover="this.style.color='#ffffff'; this.style.background='rgba(233,69,96,0.05)'"
                                onmouseout="this.style.color='#8892b0'; this.style.background='transparent'">
                                 <i class="fas fa-user mr-2"></i> Perfil
                             </a>
@@ -69,7 +69,7 @@
 
             <!-- Hamburger mobile -->
             <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = !open" style="background:transparent; border:none; color:#8892b0; padding:8px; cursor:pointer;">
+                <button @click="open = !open" style="background:transparent; border:none; color:#4d70b8; padding:8px; cursor:pointer;">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': !open}" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': !open, 'inline-flex': open}" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

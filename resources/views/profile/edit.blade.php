@@ -1,6 +1,6 @@
-<x-app-layout>
+<x-app-layout> 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl leading-tight" style="color:#fff; font-family:Georgia,serif;">
+        <h2 class="font-semibold text-xl leading-tight" style="color:#ffffff; font-family:Georgia,serif;">
             <i class="fas fa-user-circle mr-2" style="color:#e94560;"></i> Perfil
         </h2>
     </x-slot>
@@ -24,7 +24,7 @@
         </div>
 
         <!-- Excluir conta -->
-        <div style="background:#1a0f0f; border:1px solid #3d1a1a; border-radius:12px; padding:32px;">
+        <div style="background:#1a0f0f; border:1px solid #971111; border-radius:12px; padding:32px;">
             <h3 style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#e94560; margin-bottom:20px;">
                 <i class="fas fa-exclamation-triangle mr-2"></i> Zona de Perigo
             </h3>
