@@ -26,18 +26,15 @@
             color: #fff;
             font-weight: 600;
         }
-        /* Content area */
         .page-content {
             flex: 1;
             padding: 32px;
         }
-        /* Cards */
         .bg-white {
             background: #111827 !important;
             border: 1px solid #1f2d4a !important;
             color: #cbd5e1 !important;
         }
-        /* Inputs */
         input[type="text"],
         input[type="email"],
         input[type="password"] {
@@ -49,21 +46,19 @@
         input[type="email"]:focus,
         input[type="password"]:focus {
             border-color: #4d70b8 !important;
-            box-shadow: 0 0 0 2px rgba(233,69,96,0.2) !important;
+            box-shadow: 0 0 0 2px rgba(77, 112, 184, 0.2) !important;
         }
         label {
-            color: #0040ff !important;
+            color: #4d70b8 !important;
             font-size: 11px !important;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        /* Textos gerais */
         p, span, div { color: inherit; }
         .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 {
             color: #ffffff !important;
         }
         .text-gray-400, .text-gray-500 { color: #4a5568 !important; }
-        /* Botões */
         button[type="submit"] {
             background: #4d70b8 !important;
             border-color: #4d70b8 !important;
@@ -71,27 +66,27 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             font-size: 12px;
+            transition: all 0.2s ease;
         }
-        button[type="submit"]:hover { background: #12a52a !important; }
-        /* Botão de perigo */
+        button[type="submit"]:hover { 
+            background: #3b5894 !important;
+            border-color: #3b5894 !important;
+        }
         .btn-danger-dark {
             background: transparent !important;
-            border: 1px solid #e94560 !important;
-            color: #e94560 !important;
+            border: 1px solid #dc3545 !important;
+            color: #dc3545 !important;
             font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
         .btn-danger-dark:hover {
-            background: rgba(233,69,96,0.1) !important;
+            background: rgba(220, 53, 69, 0.1) !important;
         }
-        /* Separadores */
         .border-t, .border-b { border-color: #1f2d4a !important; }
-        /* Seção de perigo */
         .bg-red-50 { background: #2d1b1b !important; }
         .text-red-800 { color: #ebdddd !important; }
         .text-red-600 { color: #fbecef !important; }
-        /* Modal */
         .bg-white.rounded-lg {
             background: #111827 !important;
             border: 1px solid #1f2d4a !important;

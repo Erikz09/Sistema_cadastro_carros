@@ -15,7 +15,6 @@
             color: #F8FAFC;
         }
 
-        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             background: #0F172A;
@@ -73,7 +72,6 @@
         }
         .btn-nav-register:hover { background: #1f2d4a; }
 
-        /* ===== HERO ===== */
         .hero {
             position: relative; z-index: 1;
             padding: 140px 40px 60px;
@@ -114,7 +112,6 @@
             font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #4a5568;
         }
 
-        /* ===== SEPARADOR ===== */
         .section-label {
             position: relative; z-index: 1;
             text-align: center; padding: 48px 40px 24px;
@@ -128,7 +125,6 @@
             color: #fff; margin-top: 8px;
         }
 
-        /* ===== GRID DE CARROS ===== */
         .cars-grid {
             position: relative; z-index: 1;
             display: grid;
@@ -148,8 +144,8 @@
         }
         .car-card:hover {
             transform: translateY(-4px);
-            border-color: #4d70b8;
-            box-shadow: 0 8px 32px rgba(233,69,96,0.12);
+            border-color: #4d70b8;  
+            box-shadow: 0 8px 32px rgba(77, 112, 184, 0.15);  
         }
 
         .car-img {
@@ -169,8 +165,8 @@
 
         .car-badge {
             display: inline-block;
-            background: rgba(233,69,96,0.12);
-            color: #e94560;
+            background: rgba(77, 112, 184, 0.15);  
+            color: #4d70b8;  
             font-size: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -212,16 +208,15 @@
 
         .car-price {
             font-family: Georgia, serif;
-            font-size: 18px; color: #e94560; font-weight: 700;
+            font-size: 18px; color: #4d70b8; font-weight: 700;  
         }
 
         .car-owner {
             font-size: 11px; color: #4a5568;
             display: flex; align-items: center; gap: 6px;
         }
-        .car-owner i { color: #e94560; font-size: 10px; }
+        .car-owner i { color: #4d70b8; font-size: 10px; }  
 
-        /* ===== EMPTY STATE ===== */
         .empty-state {
             position: relative; z-index: 1;
             text-align: center; padding: 80px 40px;
@@ -230,13 +225,12 @@
         .empty-state h3 { font-family: Georgia, serif; font-size: 22px; color: #fff; margin-bottom: 8px; }
         .empty-state p { font-size: 13px; color: #4a5568; }
 
-        /* ===== CTA BOTTOM ===== */
         .cta-section {
             position: relative; z-index: 1;
             text-align: center;
             padding: 60px 40px;
             border-top: 1px solid #1f2d4a;
-            background: rgba(233,69,96,0.03);
+            background: rgba(77, 112, 184, 0.03);
         }
         .cta-section h3 {
             font-family: Georgia, serif; font-size: 24px;
@@ -264,7 +258,6 @@
         }
         .btn-cta-secondary:hover { background: rgba(42, 30, 109, 0.1); transform: translateY(-2px); }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .navbar { padding: 0 20px; }
             .cars-grid { padding: 0 16px 60px; grid-template-columns: 1fr; }
@@ -327,15 +320,11 @@
         <div class="cars-grid">
             @foreach($carros as $carro)
             <div class="car-card">
-                @if($carro->foto)
-                    <img src="{{ asset('storage/' . $carro->foto) }}"
-                         alt="{{ $carro->marca }} {{ $carro->modelo }}"
-                         class="car-img">
-                @else
-                    <div class="car-img-placeholder">
-                        <i class="fas fa-car"></i>
-                    </div>
-                @endif
+                    @if($carro->foto)
+                        <img src="{{ $carro->foto }}" alt="{{ $carro->marca }}" class="rounded">
+                    @else
+                        <span style="color:#4a5568; font-size:12px;">Sem foto</span>
+                    @endif
 
                 <div class="car-body">
                     <span class="car-badge">{{ $carro->ano }}</span>
