@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
         <h1 class="m-0">
-            <i class="fas fa-car me-2" style="color:#1f2d4a;"></i> Carros Cadastrados
+            <i class="fas fa-car me-2" style="color:#4d70b8;"></i> Carros Cadastrados
         </h1>
         <a href="{{ route('carros.create') }}" class="btn btn-primary btn-sm">
             <i class="fas fa-plus me-1"></i> Novo Carro
@@ -29,9 +29,9 @@
 
                 {{-- Imagem --}}
                 @if($carro->foto)
-                    <img src="{{ asset('storage/' . $carro->foto) }}"
-                         alt="{{ $carro->marca }}"
-                         style="width:100%; height:200px; object-fit:cover;">
+                    <img src="{{ $carro->foto }}"
+                        alt="{{ $carro->marca }} {{ $carro->modelo }}"
+                        style="width:100%; height:200px; object-fit:cover;">
                 @else
                     <div class="d-flex align-items-center justify-content-center"
                          style="height:200px; background:#0d1220; border-bottom:1px solid #1f2d4a;">
@@ -40,7 +40,8 @@
                 @endif
 
                 <div class="card-body" style="color:#cbd5e1;">
-                    <span class="badge mb-2" style="background:rgba(233,69,96,.15); color:#e94560; font-size:10px; letter-spacing:2px;">
+                    {{-- Badge alterado para azul --}}
+                    <span class="badge mb-2" style="background:rgba(77,112,184,.15); color:#4d70b8; font-size:10px; letter-spacing:2px;">
                         {{ $carro->ano }}
                     </span>
                     <h5 class="card-title mb-0" style="font-family:Georgia,serif; color:#fff;">
@@ -61,12 +62,14 @@
 
                     <div class="d-flex justify-content-between align-items-center pt-2"
                          style="border-top:1px solid #1f2d4a;">
-                        <span style="font-family:Georgia,serif; font-size:17px; color:#e94560; font-weight:700;">
+                        {{-- Preço alterado para azul --}}
+                        <span style="font-family:Georgia,serif; font-size:17px; color:#4d70b8; font-weight:700;">
                             R$ {{ number_format($carro->preco, 2, ',', '.') }}
                         </span>
                         @if(isset($carro->user))
                         <span style="font-size:11px; color:#4a5568;">
-                            <i class="fas fa-user me-1" style="color:#e94560;"></i>{{ $carro->user->name }}
+                            {{-- Ícone do usuário alterado para azul --}}
+                            <i class="fas fa-user me-1" style="color:#4d70b8;"></i>{{ $carro->user->name }}
                         </span>
                         @endif
                     </div>

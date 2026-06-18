@@ -66,18 +66,21 @@
         @error('placa') <div class="invalid-feedback">{{ $message }}</div> @enderror
     </div>
 
-    <div class="col-md-6">
-        <label class="form-label text-secondary small">Foto do Carro</label>
-        <input type="file" name="foto" accept="image/*"
-            class="form-control bg-dark border-secondary text-white @error('foto') is-invalid @enderror">
-        @error('foto') <div class="invalid-feedback">{{ $message }}</div> @enderror
+        <div class="col-md-6">
+            <label class="form-label text-secondary small">Foto do Carro</label>
+            <input type="file" name="foto" accept="image/*"
+                class="form-control bg-dark border-secondary text-white @error('foto') is-invalid @enderror">
+            @error('foto') <div class="invalid-feedback">{{ $message }}</div> @enderror
 
-        @if(!empty($carro->foto))
-            <div class="mt-2 d-flex align-items-center gap-3">
-                <img src="{{ asset('storage/' . $carro->foto) }}"
-                     width="80" class="rounded border border-secondary">
-                <small class="text-secondary">Foto atual — envie uma nova para substituir</small>
-            </div>
-        @endif
+            @if(!empty($carro->foto))
+                <div class="mt-2 d-flex align-items-center gap-3">
+                    {{-- Removido o asset('storage/') para usar o caminho tratado pelo Accessor --}}
+                    <img src="{{ $carro->foto }}"
+                        width="80" class="rounded border border-secondary"
+                        style="height: 55px; object-fit: cover;">
+                    <small class="text-secondary">Foto atual — envie uma nova para substituir</small>
+                </div>
+            @endif
+        </div>
     </div>
 </div>
