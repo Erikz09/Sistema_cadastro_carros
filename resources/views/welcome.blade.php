@@ -56,7 +56,7 @@
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
         }
-        .btn-nav-login:hover { background: rgba(100, 79, 219, 0.1); }
+        .btn-nav-login:hover { background: rgba(77, 112, 184, 0.1); }
 
         .btn-nav-register {
             background: #4d70b8;
@@ -140,6 +140,8 @@
             border: 1px solid #1f2d4a;
             border-radius: 12px;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
         }
         .car-card:hover {
@@ -150,18 +152,10 @@
 
         .car-img {
             width: 100%; height: 200px; object-fit: cover;
-            background: #0a0f1e;
+            display: block;
         }
 
-        .car-img-placeholder {
-            width: 100%; height: 200px;
-            background: #0d1220;
-            display: flex; align-items: center; justify-content: center;
-            border-bottom: 1px solid #1f2d4a;
-        }
-        .car-img-placeholder i { font-size: 48px; color: #1f2d4a; }
-
-        .car-body { padding: 20px; }
+        .car-body { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
 
         .car-badge {
             display: inline-block;
@@ -173,6 +167,7 @@
             padding: 3px 10px;
             border-radius: 20px;
             margin-bottom: 10px;
+            width: fit-content;
         }
 
         .car-title {
@@ -181,7 +176,7 @@
         }
 
         .car-subtitle {
-            font-size: 12px; color: #4a5568; margin-bottom: 16px;
+            font-size: 12px; color: #8892b0; margin-bottom: 16px;
         }
 
         .car-details {
@@ -204,6 +199,7 @@
             display: flex; align-items: center; justify-content: space-between;
             padding-top: 16px;
             border-top: 1px solid #1f2d4a;
+            margin-top: auto;
         }
 
         .car-price {
@@ -212,7 +208,7 @@
         }
 
         .car-owner {
-            font-size: 11px; color: #4a5568;
+            font-size: 11px; color: #8892b0;
             display: flex; align-items: center; gap: 6px;
         }
         .car-owner i { color: #4d70b8; font-size: 10px; }  
@@ -256,7 +252,7 @@
             text-transform: uppercase; text-decoration: none;
             transition: background 0.2s, transform 0.2s;
         }
-        .btn-cta-secondary:hover { background: rgba(42, 30, 109, 0.1); transform: translateY(-2px); }
+        .btn-cta-secondary:hover { background: rgba(77, 112, 184, 0.1); transform: translateY(-2px); }
 
         @media (max-width: 600px) {
             .navbar { padding: 0 20px; }
@@ -268,7 +264,6 @@
 <body>
     <div id="stars"></div>
 
-    {{-- NAVBAR --}}
     <nav class="navbar">
         <div class="navbar-left">
             <a href="{{ route('welcome') }}" class="navbar-brand">Auto<span>Gest</span></a>
@@ -284,7 +279,6 @@
         </div>
     </nav>
 
-    {{-- HERO --}}
     <div class="hero">
         <span class="hero-label">Catálogo de Veículos</span>
         <h1>Bem-vindo ao<br><span>AutoGest</span></h1>
@@ -310,7 +304,6 @@
         </div>
     </div>
 
-    {{-- GRID DE CARROS --}}
     @if($carros->isNotEmpty())
         <div class="section-label">
             <span>Catálogo</span>
@@ -319,42 +312,47 @@
 
         <div class="cars-grid">
             @foreach($carros as $carro)
-            <div class="car-card">
+                <div class="car-card">
                     @if($carro->foto)
-                        <img src="{{ $carro->foto }}" alt="{{ $carro->marca }}" class="rounded">
+                        <img src="{{ $carro->foto }}" alt="{{ $carro->marca }}" class="car-img">
                     @else
-                        <span style="color:#4a5568; font-size:12px;">Sem foto</span>
+                        <div class="car-img-placeholder">
+                            <span style="color:#8892b0; font-size:12px; letter-spacing:1px; text-transform:uppercase;">
+                                <i class="fas fa-image mr-1"></i> Sem foto
+                            </span>
+                        </div>
                     @endif
 
-                <div class="car-body">
-                    <span class="car-badge">{{ $carro->ano }}</span>
-                    <h3 class="car-title">{{ $carro->marca }}</h3>
-                    <p class="car-subtitle">{{ $carro->modelo }}</p>
+                    <div class="car-body">
+                        <div>
+                            <span class="car-badge">{{ $carro->ano }}</span>
+                            <h3 class="car-title">{{ $carro->marca }}</h3>
+                            <p class="car-subtitle">{{ $carro->modelo }}</p>
 
-                    <div class="car-details">
-                        <div class="car-detail">
-                            <span class="car-detail-label">Cor</span>
-                            <span class="car-detail-value">{{ $carro->cor }}</span>
+                            <div class="car-details">
+                                <div class="car-detail">
+                                    <span class="car-detail-label">Cor</span>
+                                    <span class="car-detail-value">{{ $carro->cor }}</span>
+                                </div>
+                                <div class="car-detail">
+                                    <span class="car-detail-label">Placa</span>
+                                    <span class="car-detail-value">{{ $carro->placa }}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="car-detail">
-                            <span class="car-detail-label">Placa</span>
-                            <span class="car-detail-value">{{ $carro->placa }}</span>
-                        </div>
-                    </div>
 
-                    <div class="car-footer">
-                        <span class="car-price">
-                            R$ {{ number_format($carro->preco, 2, ',', '.') }}
-                        </span>
-                        @if($carro->user)
-                        <span class="car-owner">
-                            <i class="fas fa-user"></i>
-                            {{ $carro->user->name }}
-                        </span>
-                        @endif
+                        <div class="car-footer">
+                            <span class="car-price">
+                                R$ {{ number_format($carro->preco, 2, ',', '.') }}
+                            </span>
+                            @if($carro->user)
+                                <span class="car-owner">
+                                    <i class="fas fa-user"></i> {{ $carro->user->name }}
+                                </span>
+                            @endif
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     @else
@@ -365,7 +363,6 @@
         </div>
     @endif
 
-    {{-- CTA --}}
     <div class="cta-section">
         <h3>Quer gerenciar seus veículos?</h3>
         <p>Crie uma conta gratuita e comece a cadastrar seus carros agora.</p>
